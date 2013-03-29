@@ -1,4 +1,4 @@
-<h1>Index</h1>
+<h1>News List</h1>
 <?php foreach ($news as $news_item): ?>
 
     <h2><?php echo $news_item['title'] ?></h2>

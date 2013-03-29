@@ -1,6 +1,7 @@
 <html>
     <head>
-        <title><?php echo $title ?></title> - CodeIgniter 2 tutorial </title>
-</head>
-<body>
-    <h1>CodeIgniter 2 Tutorial</h1>
+        <title><?php echo $title ?> - Recetacas </title>
+	</head>
+	<body>
+	    <h1>Recetacas</h1>
+	    <hr>

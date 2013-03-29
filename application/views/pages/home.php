@@ -1,1 +1,2 @@
-<h1>Welcome Home!</h1>
+<h1>Home Page!</h1>
+<p>El controlador <strong>pages.php</strong> carga la plantilla /views/pages/<strong>home.php</strong> por defecto (esta no es la plantilla welcome.php)</p>
