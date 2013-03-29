@@ -1,0 +1,13 @@
+{% include 'templates/header.twig' %}
+
+<h2>Recetas - listado</h2>
+
+{% for recetas_item in recetas %}
+
+    <h3>{{ recetas_item.nombre }}</h3>
+    <p>{{ recetas_item.desc_corta }}</p>
+    <p><a href="{{ recetas_item.slug }}">Ver receta</a></p>
+
+{% endfor %}
+
+{% include 'templates/footer.twig' %}

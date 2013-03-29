@@ -1,19 +1,25 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Recetas extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
         $this->load->model('recetas_model');
+        $this->load->library('twig');
     }
 
     public function index() {
         $data['recetas'] = $this->recetas_model->get_recetas();
-        $data['title'] = 'Listado de recetas';
+        
+        $data['title'] = 'Lista de recetas';
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('recetas/index', $data);
-        $this->load->view('templates/footer');
+        // Sin usar twig:
+        //$this->load->view('templates/header.php', $data);
+        //$this->load->view('recetas/index', $data);
+        //$this->load->view('templates/footer.php');
+        
+        // Usando twig: (header y footer se incluyen en el archivo twig "recetas/index.twig")
+        $this->twig->display('recetas/index.twig', $data);
     }
 
     public function view($slug) {
@@ -23,19 +29,20 @@ class Recetas extends CI_Controller {
             show_404();
         }
 
-        $data['nombre'] = $data['recetas_item']['nombre'];
-        $data['nombre'] = $data['recetas_item']['desc_corta'];
+        $data['title'] = $data['recetas_item']['nombre'];
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('recetas/view', $data);
-        $this->load->view('templates/footer');
+        //$this->load->view('templates/header', $data);
+        //$this->load->view('recetas/view', $data);
+        //$this->load->view('templates/footer');
+        $this->twig->display('recetas/view.twig', $data);
+        
     }
 
     public function create() {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
-        $data['nombre'] = 'Create a recetas item';
+        $data['title'] = 'Nueva receta';
 
         $this->form_validation->set_rules('nombre', 'nombre', 'required');
         $this->form_validation->set_rules('desc_corta', 'desc_corta', 'required');
