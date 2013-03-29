@@ -4,8 +4,11 @@ class Recetas extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('recetas_model');
-        $this->load->library('twig');
+        //$this->load->model('recetas_model'); ////cargada en autoload.php
+        //$this->load->library('twig'); //cargada en autoload.php
+
+        $this->twig->ci_function_init();
+        $this->twig->register_function('anchor', new Twig_Function_Function('anchor'));
     }
 
     public function index() {

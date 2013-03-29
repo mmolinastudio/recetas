@@ -6,7 +6,7 @@
 
     <h3>{{ recetas_item.nombre }}</h3>
     <p>{{ recetas_item.desc_corta }}</p>
-    <p><a href="{{ recetas_item.slug }}">Ver receta</a></p>
+    <p><a href="{{ current_url() ~ '/' ~ recetas_item.slug }}">Ver receta</a></p>
 
 {% endfor %}
 
