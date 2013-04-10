@@ -1,15 +1,19 @@
-<h2>Create a recetas item</h2>
+<div class="container">
 
-<?php echo validation_errors(); ?>
+	<h2>Create a recetas item</h2>
 
-<?php echo form_open('recetas/create') ?>
+	<?php echo validation_errors(); ?>
 
-<label for="title">Title</label> 
-<input type="input" name="title" /><br />
+	<?php echo form_open('recetas/create') ?>
 
-<label for="text">Text</label>
-<textarea name="text"></textarea><br />
+	<label for="title">Title</label> 
+	<input type="input" name="title" /><br />
 
-<input type="submit" name="submit" value="Create recetas item" /> 
+	<label for="text">Text</label>
+	<textarea name="text"></textarea><br />
 
-</form>
+	<input type="submit" name="submit" value="Create recetas item" /> 
+
+	</form>
+
+</div>

@@ -8,7 +8,7 @@ class Recetas extends CI_Controller {
         //$this->load->library('twig'); //cargada en autoload.php
 
         $this->twig->ci_function_init();
-        $this->twig->register_function('anchor', new Twig_Function_Function('anchor'));
+        //$this->twig->register_function('anchor', new Twig_Function_Function('anchor'));
     }
 
     public function index() {
@@ -16,11 +16,14 @@ class Recetas extends CI_Controller {
         
         $data['title'] = 'Lista de recetas';
 
-        // Sin usar twig:
+        // Cargar las plantillas sin usar twig:
         //$this->load->view('templates/header.php', $data);
         //$this->load->view('recetas/index', $data);
         //$this->load->view('templates/footer.php');
         
+        //para saber qué boton del menú principal está activo...
+        $data['controller'] = get_instance()->router->fetch_class(); //tb existe fetch_method()
+
         // Usando twig: (header y footer se incluyen en el archivo twig "recetas/index.twig")
         $this->twig->display('recetas/index.twig', $data);
     }
@@ -34,9 +37,8 @@ class Recetas extends CI_Controller {
 
         $data['title'] = $data['recetas_item']['nombre'];
 
-        //$this->load->view('templates/header', $data);
-        //$this->load->view('recetas/view', $data);
-        //$this->load->view('templates/footer');
+        //para saber qué boton del menú principal está activo...
+        $data['controller'] = get_instance()->router->fetch_class();
         $this->twig->display('recetas/view.twig', $data);
         
     }

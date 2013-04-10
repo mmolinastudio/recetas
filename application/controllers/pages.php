@@ -13,6 +13,10 @@ class Pages extends CI_Controller {
 
         $this->twig->ci_function_init();
         $this->twig->register_function('anchor', new Twig_Function_Function('anchor'));
+
+        //para saber qué boton del menú principal está activo...
+        $data['controller'] = $page;
+
         $this->twig->display('pages/'.$page.'.twig', $data);
     }
 

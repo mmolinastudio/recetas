@@ -1,0 +1,27 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+/* TEAM */
+
+	Name: Miguel molina Planelles
+	Role: Web Developer & Design
+	Site: https://github.com/mmolinastudio
+	Location: Alicante, Spain
+	Twitter: mmolinastudio
+
+	Name: Rosa Marin Lopez
+	Role: Inspiration, Encourage & Recipe Writer
+	Location: Alicante, Spain
+
+/* THANKS */
+
+	
+
+/* SITE */
+
+	Last update: constantly changing
+	Language: Castellano
+	Doctype: HTML5
+	IDE: Sublime Text 2
+	Standards: HTML5, CSS3, PHP5
+	Technology: Git, Codeigniter, MySQL, InnoDB, jQuery, Bootstrap, HTML5Boilerplate, Initializr, HTML5Shiv

@@ -1,13 +1,22 @@
 {% include 'templates/header.twig' %}
 
-<h2>Recetas - listado</h2>
+<div class="container">
 
-{% for recetas_item in recetas %}
+	<h2>Lista de Recetas</h2>
+	<div class="accordion" id="accordion2">
+	{% for recetas_item in recetas %}
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<h3 class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{ recetas_item.id }}">{{ recetas_item.nombre }}</h3>
+			</div>
+			<div id="collapse{{ recetas_item.id }}" class="accordion-body collapse">
+				<div class="accordion-inner">
+					<p>{{ recetas_item.desc_corta }}</p>
+		    		<p><a href="{{ current_url() ~ '/' ~ recetas_item.slug }}">Ver receta</a></p>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+	</div>
 
-    <h3>{{ recetas_item.nombre }}</h3>
-    <p>{{ recetas_item.desc_corta }}</p>
-    <p><a href="{{ current_url() ~ '/' ~ recetas_item.slug }}">Ver receta</a></p>
-
-{% endfor %}
-
-{% include 'templates/footer.twig' %}
+	{% include 'templates/footer.twig' %}
