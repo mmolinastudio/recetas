@@ -38,7 +38,10 @@
 |
 */
 
-$route['recetas/create'] = 'recetas/create';
+$route['auth/(:any)'] = 'auth/$1';
+$route['auth'] = 'auth';
+
+//$route['recetas/create'] = 'recetas/create';
 $route['recetas/(:any)'] = 'recetas/view/$1';
 $route['recetas'] = 'recetas';
 

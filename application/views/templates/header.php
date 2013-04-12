@@ -6,20 +6,20 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ title }} - Recetacas </title>
+        <title><?php echo $title; ?> - Recetacas </title>
         <meta name="description" content="Base de datos personal de recetas de cocina fáciles y herramienta sencilla para hacer la lista de la compra.">
         <meta name="viewport" content="width=device-width">
         <link rel="author" href="humans.txt" />
 
-        <link rel="stylesheet" href="{{ site_url() }}css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?php echo site_url(); ?>css/bootstrap.min.css">
         <style>
             body {
                 padding-top: 60px;
                 padding-bottom: 40px;
             }
         </style>
-        <link rel="stylesheet" href="{{ site_url() }}css/bootstrap-responsive.min.css">
-        <link rel="stylesheet" href="{{ site_url() }}css/main.css">
+        <link rel="stylesheet" href="<?php echo site_url(); ?>css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="<?php echo site_url(); ?>css/main.css">
 
         <!--[if lt IE 9]>
             <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -41,12 +41,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="{{ site_url() }}">Recetacas</a>
+                    <a class="brand" href="<?php echo site_url(); ?>">Recetacas</a>
                     <div class="nav-collapse collapse">
-                        <ul class="nav"> {# <li>{{ controller }}</li> #}
-                            <li{% if controller == "home" %} class="active" {% endif %}><a href="{{ site_url() }}">Home</a></li>
-                            <li{% if controller == "recetas" %} class="active" {% endif %}><a href="{{ site_url("recetas") }}">Recetas</a></li>
-                            <li{% if controller == "about" %} class="active" {% endif %}><a href="{{ site_url("about") }}">About</a></li>
+                        <ul class="nav">
+                            <li<?php if($controller == "home"){ ?> class="active" <?php } ?>><a href="<?php echo site_url(); ?>">Home</a></li>
+                            <li<?php if($controller == "recetas"){ ?> class="active" <?php } ?>><a href="<?php echo site_url("recetas"); ?>">Recetas</a></li>
+                            <li<?php if ($controller == "about"){ ?> class="active" <?php } ?>><a href="<?php echo site_url("about"); ?>">About</a></li>
+                            <?php if ($controller == "auth"){ ?><li class="active"><a href="<?php echo site_url("auth"); ?>">Configuración</a></li><?php } ?>
                             <!--<li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
@@ -68,15 +69,15 @@
                         </form>
                         -->
 
-                        {% if logged_in %}
+                        <?php if(isset($logged_in) && $logged_in==true){ ?>
                             <p class="navbar-text pull-right">
-                                Logged in as <a href="{{ site_url("auth") }}">{{ username }}</a> | <a href="{{ site_url("auth/logout") }}">Logout</a>
+                                Logged in as <a href="<?php echo site_url("auth"); ?>"><?php echo $username; ?></a> | <a href="<?php echo site_url("auth/logout"); ?>">Logout</a>
                             </p>
-                        {% else %}
+                        <?php }else{ ?>
                             <p class="navbar-text pull-right">
-                                <a class="navbar-link" href="{{ site_url("auth") }}">Login</a> | <a class="navbar-link" href="{{ site_url("auth/create_user") }}">Nuevo Usuario</a>
+                                <a class="navbar-link" href="<?php echo site_url("auth"); ?>">Login</a> | <a class="navbar-link" href="<?php echo site_url("auth/create_user"); ?>">Nuevo Usuario</a>
                             </p>
-                        {% endif %}
+                        <?php } ?>
                         <!--<p class="navbar-text pull-right">
                             Logged in as
                             <a class="navbar-link" href="#">Username</a>

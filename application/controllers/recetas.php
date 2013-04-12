@@ -5,8 +5,8 @@ class Recetas extends CI_Controller {
     public function __construct() {
         parent::__construct();
         //$this->load->model('recetas_model'); ////cargada en autoload.php
+        
         //$this->load->library('twig'); //cargada en autoload.php
-
         $this->twig->ci_function_init();
         //$this->twig->register_function('anchor', new Twig_Function_Function('anchor'));
     }
@@ -15,14 +15,15 @@ class Recetas extends CI_Controller {
         $data['recetas'] = $this->recetas_model->get_recetas();
         
         $data['title'] = 'Lista de recetas';
-
-        // Cargar las plantillas sin usar twig:
-        //$this->load->view('templates/header.php', $data);
-        //$this->load->view('recetas/index', $data);
-        //$this->load->view('templates/footer.php');
         
         //para saber qué boton del menú principal está activo...
         $data['controller'] = get_instance()->router->fetch_class(); //tb existe fetch_method()
+
+        if ($this->ion_auth->logged_in()) {
+            $data['logged_in'] = true;
+            $user = $this->ion_auth->user()->row();
+            $data['username'] = $user->username;
+        }
 
         // Usando twig: (header y footer se incluyen en el archivo twig "recetas/index.twig")
         $this->twig->display('recetas/index.twig', $data);
@@ -39,10 +40,18 @@ class Recetas extends CI_Controller {
 
         //para saber qué boton del menú principal está activo...
         $data['controller'] = get_instance()->router->fetch_class();
+
+        if ($this->ion_auth->logged_in()) {
+            $data['logged_in'] = true;
+            $user = $this->ion_auth->user()->row();
+            $data['username'] = $user->username;
+        }
+
         $this->twig->display('recetas/view.twig', $data);
         
     }
 
+    /*
     public function create() {
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -61,5 +70,6 @@ class Recetas extends CI_Controller {
             $this->load->view('recetas/success');
         }
     }
+    */
 
 }

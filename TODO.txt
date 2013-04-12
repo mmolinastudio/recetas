@@ -1,0 +1,16 @@
+	Controlador clase Auth
+		campos obligatorios innecesarios en la BD. Quitar campos de la BD y cambiar todos los métodos.
+
+	Vistas clase Auth
+ok		Añadir header y footer a todas las vistas.
+ok			Rehacer las cabeceras de twig a php (o se rehace eso, o se pasan a twig todas las vistas de la clase Auth..).
+		Quitar campos inneceasios de los formularios
+
+	Buscador
+
+	Registro de usuarios
+	Configuración del perfil de usuarios (modificar datos/darse de baja)
+
+	Metodos nuevos de la clase Receta para añadir/modificar/borrar recetas (tras haber hecho login)
+
+	Home mejorada

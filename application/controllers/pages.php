@@ -17,6 +17,12 @@ class Pages extends CI_Controller {
         //para saber qué boton del menú principal está activo...
         $data['controller'] = $page;
 
+        if ($this->ion_auth->logged_in()) {
+            $data['logged_in'] = true;
+            $user = $this->ion_auth->user()->row();
+            $data['username'] = $user->username;
+        }
+
         $this->twig->display('pages/'.$page.'.twig', $data);
     }
 
