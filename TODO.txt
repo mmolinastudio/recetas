@@ -6,6 +6,16 @@ ok		Añadir header y footer a todas las vistas.
 ok			Rehacer las cabeceras de twig a php (o se rehace eso, o se pasan a twig todas las vistas de la clase Auth..).
 		Quitar campos inneceasios de los formularios
 
+
+	BD - Relacion Receta-Users (quien ha escrito cada receta): añadir a la tabla 'receta' el campo 'usuario' (puede ser nulo, por si el usuario se diera de baja, la receta seguiria)
+	BD - Relación Receta-Users (Likes que tiene una receta): Tabla aparte 'likes' con dos claves ajenas: usuario.id y receta.id
+	BD - Nueva tabla: Categoria_plato: [id, nombre, descripcion, ¿foto?]
+	BD - Relación Receta-Categoria_plato: Tabla aparte con 2 claves ajenas: receta.id y categoria.id
+ok	BD - Nueva tabla: Categoria_ingr: [id, nombre, ¿descripcion?, ¿foto?]
+ok	BD - Relacion Ingrediente-Categoria_ingr: añadir a la tabla ingrediente el campo 'categoria' y hacerlo clave ajena de la tabla categoria_ingr
+ok	BD - Añadir campo 'num_raciones' tinyint(4) a la tabla receta
+	BD - añadir campo foto a la tabla usuario
+
 	Buscador
 
 	Registro de usuarios
@@ -14,3 +24,25 @@ ok			Rehacer las cabeceras de twig a php (o se rehace eso, o se pasan a twig tod
 	Metodos nuevos de la clase Receta para añadir/modificar/borrar recetas (tras haber hecho login)
 
 	Home mejorada
+
+	Lista de Recetas.
+		Listar todas las recetas.
+		Busqueda por palabras (titulo y descripcion)
+		Busquqeda por ingredientes
+		Poner botoncicos (a la izquierda) que filtren o reordenen todas las recetas según diferentes parametros:
+			Ordenar por relevancia (en caso de haber hecho una busqueda)
+			Ordenar por dificultad: Facil, media, dificil
+			Ordenar por tiempo de preparacion. (intervalo entre el t. máximo y el t. mínimo)
+			Filtrar por categoría: dulce, salado, desayuno, aperitivo, comida, cena, entrante,...
+			Filtrar por dificultad
+			Filtrar por tiempo de preparacion.
+		Ver recetas por foto, titulo o tabla detallada (titulo, dificultad, categoria, tiempo).
+
+	Crear un sistema con el que se puedan votar las recetas. Para que en la Home aparezcan las mas populares, y en los listados se puedan ordenar por popularidad.
+
+
+
+ok	hacer ingrediente igual al ingrediente.id en vez de al nombre
+ok	quitar raciones
+ok	quitar ingr_obligatorio
+ok	añadir enumerado: prioridad [obligatorio, alternativo, opcional]

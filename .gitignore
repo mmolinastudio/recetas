@@ -1,5 +1,6 @@
 errores_tontos.txt
-application/cache/
+cache/
+cache/*
 
 #################
 ## Eclipse
@@ -102,7 +103,7 @@ publish
 # Others
 [Bb]in
 [Oo]bj
-sql
+#sql
 TestResults
 *.Cache
 ClientBin
