@@ -48,6 +48,11 @@
                             <li<?php if($controller == "recetas"){ ?> class="active" <?php } ?>><a href="<?php echo site_url("recetas"); ?>">Recetas</a></li>
                             <li<?php if ($controller == "about"){ ?> class="active" <?php } ?>><a href="<?php echo site_url("about"); ?>">About</a></li>
                             <?php if ($controller == "auth"){ ?><li class="active"><a href="<?php echo site_url("auth"); ?>">Configuración</a></li><?php } ?>
+                            <?php if ($controller == "registrar_usuario"){ ?>
+                                <li class="active"><a href="<?php echo site_url("auth"); ?>">Registro</a></li>
+                            <?php } elseif (!empty($username) && $username != "administrator"){ ?>
+                                <li<?php if($controller == "perfil"){ ?> class="active" <?php } ?>><a href="<?php echo site_url("perfil"); ?>">Mi cuenta</a></li>
+                            <?php } ?>
                             <!--<li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
@@ -71,11 +76,11 @@
 
                         <?php if(isset($logged_in) && $logged_in==true){ ?>
                             <p class="navbar-text pull-right">
-                                Logged in as <a href="<?php echo site_url("auth"); ?>"><?php echo $username; ?></a> | <a href="<?php echo site_url("auth/logout"); ?>">Logout</a>
+                                Logged in as <a href="<?php echo site_url("auth"); ?>"><?php echo $username; ?></a> | <a href="<?php echo site_url("logout"); ?>">Logout</a>
                             </p>
                         <?php }else{ ?>
                             <p class="navbar-text pull-right">
-                                <a class="navbar-link" href="<?php echo site_url("auth"); ?>">Login</a> | <a class="navbar-link" href="<?php echo site_url("auth/create_user"); ?>">Nuevo Usuario</a>
+                                <a class="navbar-link" href="<?php echo site_url("login"); ?>">Login</a> | <a class="navbar-link" href="<?php echo site_url("registro"); ?>">Nuevo Usuario</a>
                             </p>
                         <?php } ?>
                         <!--<p class="navbar-text pull-right">

@@ -23,9 +23,9 @@ $lang['error_csrf'] = 'This form post did not pass our security checks.';
 // Login
 $lang['login_heading']         = 'Login';
 $lang['login_subheading']      = 'Please login with your email/username and password below.';
-$lang['login_identity_label']  = 'Email/Username:';
-$lang['login_password_label']  = 'Password:';
-$lang['login_remember_label']  = 'Remember Me:';
+$lang['login_identity_label']  = 'Email';
+$lang['login_password_label']  = 'Password';
+$lang['login_remember_label']  = 'Remember Me';
 $lang['login_submit_btn']      = 'Login';
 $lang['login_forgot_password'] = 'Forgot your password?';
 
@@ -72,6 +72,27 @@ $lang['create_user_validation_phone3_label']           = 'Third Part of Phone';
 $lang['create_user_validation_company_label']          = 'Company Name';
 $lang['create_user_validation_password_label']         = 'Password';
 $lang['create_user_validation_password_confirm_label'] = 'Password Confirmation';
+
+// Register User
+$lang['register_user_heading']                           = 'New User';
+$lang['register_user_subheading']                        = 'Please, give us some information below.';
+$lang['register_user_fname_label']                       = 'First Name:';
+$lang['register_user_lname_label']                       = 'Last Name:';
+$lang['register_user_email_label']                       = 'Email:';
+$lang['register_user_password_label']                    = 'Password:';
+$lang['register_user_password_confirm_label']            = 'Confirm Password:';
+$lang['register_user_submit_btn']                        = 'Create User';
+$lang['register_user_validation_fname_label']            = 'First Name';
+$lang['register_user_validation_lname_label']            = 'Last Name';
+$lang['register_user_validation_email_label']            = 'Email Address';
+$lang['register_user_validation_password_label']         = 'Password';
+$lang['register_user_validation_password_confirm_label'] = 'Password Confirmation';
+$lang['register_user_username_label']                    = 'Username:';
+$lang['register_user_validation_username_label']         = 'Username';
+$lang['register_user_foto_label']                        = 'Photo:';
+$lang['register_user_validation_foto_label']             = 'Photo';
+$lang['register_user_optional_label']                    = 'Optional field';
+$lang['register_user_obligatory_label']                  = 'Obligatory field';
 
 // Edit User
 $lang['edit_user_heading']                           = 'Edit User';

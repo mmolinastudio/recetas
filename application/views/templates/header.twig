@@ -47,6 +47,12 @@
                             <li{% if controller == "home" %} class="active" {% endif %}><a href="{{ site_url() }}">Home</a></li>
                             <li{% if controller == "recetas" %} class="active" {% endif %}><a href="{{ site_url("recetas") }}">Recetas</a></li>
                             <li{% if controller == "about" %} class="active" {% endif %}><a href="{{ site_url("about") }}">About</a></li>
+                            {% if controller == "auth" %}<li class="active"><a href="{{ site_url("auth") }}">Configuración</a></li>{% endif %}
+                            {% if controller == "registrar_usuario" %}
+                                <li class="active"><a href="{{ site_url("auth") }}">Registro</a></li>
+                            {% elseif username and username != "administrator" %}
+                                <li{% if controller == "perfil" %} class="active" {% endif %}><a href="{{ site_url("perfil") }}">Mi cuenta</a></li>
+                            {% endif %}
                             <!--<li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
@@ -70,11 +76,11 @@
 
                         {% if logged_in %}
                             <p class="navbar-text pull-right">
-                                Logged in as <a href="{{ site_url("auth") }}">{{ username }}</a> | <a href="{{ site_url("auth/logout") }}">Logout</a>
+                                Logged in as <a href="{{ site_url("auth") }}">{{ username }}</a> | <a href="{{ site_url("logout") }}">Logout</a>
                             </p>
                         {% else %}
                             <p class="navbar-text pull-right">
-                                <a class="navbar-link" href="{{ site_url("auth") }}">Login</a> | <a class="navbar-link" href="{{ site_url("auth/create_user") }}">Nuevo Usuario</a>
+                                <a class="navbar-link" href="{{ site_url("login") }}">Login</a> | <a class="navbar-link" href="{{ site_url("registro") }}">Nuevo Usuario</a>
                             </p>
                         {% endif %}
                         <!--<p class="navbar-text pull-right">

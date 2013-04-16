@@ -38,10 +38,13 @@
 |
 */
 
+$route['registro'] = 'auth/registrar_usuario';
+$route['login'] = 'auth/login';
+$route['logout'] = 'auth/logout';
 $route['auth/(:any)'] = 'auth/$1';
 $route['auth'] = 'auth';
 
-//$route['recetas/create'] = 'recetas/create';
+$route['recetas/page/(:any)'] = 'recetas/index/$1';
 $route['recetas/(:any)'] = 'recetas/view/$1';
 $route['recetas'] = 'recetas';
 

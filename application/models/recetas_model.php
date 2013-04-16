@@ -6,8 +6,20 @@ class Recetas_model extends CI_Model {
         $this->load->database();
     }
 
-//TODO hacer un select ordenado por...
-    public function get_recetas($slug = FALSE) {
+    public function get_num_recetas() {
+        return $this->db->count_all('receta');
+    }
+
+    public function get_recetas($limit,$start) {
+
+        $this->db->limit($limit,$start);
+        $query = $this->db->get('receta');
+
+        return $query->result();
+        //return $query->row_array();
+    }
+
+    public function get_receta_slug($slug = FALSE) {
         if ($slug === FALSE) {
             $query = $this->db->get('receta');
             return $query->result_array();
@@ -17,7 +29,6 @@ class Recetas_model extends CI_Model {
         return $query->row_array();
     }
 
-//TODO los campor de la bd estan mal
     public function set_recetas() {
         $this->load->helper('url');
 

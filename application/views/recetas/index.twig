@@ -1,6 +1,7 @@
 {% include 'templates/header.twig' %}
 
 	<h2>Lista de Recetas</h2>
+	{{ paginacion | raw }}
 	<div class="accordion" id="accordion2">
 	{% for recetas_item in recetas %}
 		<div class="accordion-group">
@@ -16,5 +17,6 @@
 		</div>
 	{% endfor %}
 	</div>
+	{{ paginacion | raw }}
 
 {% include 'templates/footer.twig' %}

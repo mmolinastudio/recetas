@@ -1,7 +1,7 @@
 			<hr>
 
             <footer>
-                <p>&copy; 2012 | @mmolinastudio</p>
+                <p class="muted">&copy; 2013 | @mmolinastudio</p>
             </footer>
 
         </div> <!-- /container -->

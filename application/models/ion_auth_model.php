@@ -783,7 +783,7 @@ class Ion_auth_model extends CI_Model
 		}
 
 		// If username is taken, use username1 or username2, etc.
-		if ($this->identity_column != 'username')
+		/*if ($this->identity_column != 'username')
 		{
 			$original_username = $username;
 			for($i = 0; $this->username_check($username); $i++)
@@ -793,6 +793,12 @@ class Ion_auth_model extends CI_Model
 					$username = $original_username . $i;
 				}
 			}
+		}*/
+		// Si username está cogido, volver al formulario de registro.
+		if ($this->username_check($username))
+		{
+			$this->set_error('account_creation_duplicate_username');
+			return FALSE;
 		}
 
 		// IP Address

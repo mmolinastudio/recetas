@@ -2,6 +2,13 @@
 
 class Pages extends CI_Controller {
 
+    /**
+    * Carga las vistas de las páginas ¿estáticas? Home y About.
+    * basado en el método Pages.view del tutorial "Introduccion a codeigniter" 
+    *
+    * @return Carga las vistas Home o About
+    * @param string $slug
+    */
     public function view($page = 'home') {
 
         if (!file_exists('application/views/pages/' . $page . '.twig')) {
@@ -22,6 +29,8 @@ class Pages extends CI_Controller {
             $user = $this->ion_auth->user()->row();
             $data['username'] = $user->username;
         }
+
+        //$this->output->enable_profiler(TRUE);
 
         $this->twig->display('pages/'.$page.'.twig', $data);
     }
