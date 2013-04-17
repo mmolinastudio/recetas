@@ -50,43 +50,20 @@
                             <?php if ($controller == "auth"){ ?><li class="active"><a href="<?php echo site_url("auth"); ?>">Configuración</a></li><?php } ?>
                             <?php if ($controller == "registrar_usuario"){ ?>
                                 <li class="active"><a href="<?php echo site_url("auth"); ?>">Registro</a></li>
-                            <?php } elseif (!empty($username) && $username != "administrator"){ ?>
-                                <li<?php if($controller == "perfil"){ ?> class="active" <?php } ?>><a href="<?php echo site_url("perfil"); ?>">Mi cuenta</a></li>
+                            <?php } elseif (($logged_in) && ($real_username != "administrator")){ ?>
+                                <li<?php if($controller == "mi_perfil"){ ?> class="active" <?php } ?>><a href="<?php echo site_url("mi_perfil"); ?>">Mi cuenta</a></li>
                             <?php } ?>
-                            <!--<li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
-                                    <li class="divider"></li>
-                                    <li class="nav-header">Nav header</li>
-                                    <li><a href="#">Separated link</a></li>
-                                    <li><a href="#">One more separated link</a></li>
-                                </ul>
-                            </li>-->
                         </ul>
-                        <!--
-                        <form class="navbar-form pull-right">
-                            <input class="span2" type="text" placeholder="Email">
-                            <input class="span2" type="password" placeholder="Password">
-                            <button type="submit" class="btn">Sign in</button>
-                        </form>
-                        -->
 
                         <?php if(isset($logged_in) && $logged_in==true){ ?>
                             <p class="navbar-text pull-right">
-                                Logged in as <a href="<?php echo site_url("auth"); ?>"><?php echo $username; ?></a> | <a href="<?php echo site_url("logout"); ?>">Logout</a>
+                                Logged in as <a class="navbar-link" href="<?php echo site_url("auth"); ?>"><?php echo $real_username; ?></a> | <a class="navbar-link" href="<?php echo site_url("logout"); ?>">Logout</a>
                             </p>
                         <?php }else{ ?>
                             <p class="navbar-text pull-right">
                                 <a class="navbar-link" href="<?php echo site_url("login"); ?>">Login</a> | <a class="navbar-link" href="<?php echo site_url("registro"); ?>">Nuevo Usuario</a>
                             </p>
                         <?php } ?>
-                        <!--<p class="navbar-text pull-right">
-                            Logged in as
-                            <a class="navbar-link" href="#">Username</a>
-                        </p>-->
                     </div><!--/.nav-collapse -->
                 </div>
             </div>

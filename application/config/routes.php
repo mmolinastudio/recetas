@@ -38,9 +38,14 @@
 |
 */
 
+//$route['upload/(:any)'] = 'upload/$1';
+//$route['upload'] = 'upload';
+
 $route['registro'] = 'auth/registrar_usuario';
 $route['login'] = 'auth/login';
 $route['logout'] = 'auth/logout';
+$route['mi_perfil'] = 'auth/ver_perfil_usuario';
+$route['usuario/(:any)'] = 'auth/ver_perfil_usuario/$1';
 $route['auth/(:any)'] = 'auth/$1';
 $route['auth'] = 'auth';
 

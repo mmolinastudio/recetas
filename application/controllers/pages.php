@@ -18,21 +18,20 @@ class Pages extends CI_Controller {
 
         $data['title'] = ucfirst($page); // Capitalize the first letter
 
-        $this->twig->ci_function_init();
-        $this->twig->register_function('anchor', new Twig_Function_Function('anchor'));
-
         //para saber qué boton del menú principal está activo...
         $data['controller'] = $page;
 
-        if ($this->ion_auth->logged_in()) {
-            $data['logged_in'] = true;
+        $data['logged_in'] = $this->ion_auth->logged_in();
+        if ($data['logged_in']) {
             $user = $this->ion_auth->user()->row();
-            $data['username'] = $user->username;
+            $data['real_username'] = $user->username;
         }
 
         //$this->output->enable_profiler(TRUE);
 
-        $this->twig->display('pages/'.$page.'.twig', $data);
+        $this->load->view('templates/header', $data);
+        $this->load->view('pages/'.$page, $data);
+        $this->load->view('templates/footer', $data);
     }
 
 }

@@ -2077,4 +2077,27 @@ class Ion_auth_model extends CI_Model
 			return inet_pton($ip_address);
 		}
 	}
+
+	// ***** My functions ********
+
+	/**
+	 * user by username
+	 *
+	 * @return object
+	 * @author Ben Edmunds
+	 **/
+	public function user_by_username($username = NULL)
+	{
+		$this->trigger_events('user');
+
+		//if no id was passed use the current users id
+		$username || $username = $this->session->userdata('user_username');
+
+		$this->limit(1);
+		$this->where($this->tables['users'].'.username', $username);
+
+		$this->users();
+
+		return $this;
+	}
 }
