@@ -1,7 +1,8 @@
 RewriteEngine on
 
 #RewriteCond $1 !^(index\.php|images|robots\.txt)
-RewriteCond $1 !^(index\.php|css|js|images|robots\.txt)
+RewriteCond $1 !^(index\.php|assets|css|js|img|robots\.txt)
+RewriteCond $1 !^(index\.php|robots\.txt)
 
 #Use this rule if the applicaiton is not in a subdirectory
 RewriteRule ^(.*)$ index.php/$1 [L]

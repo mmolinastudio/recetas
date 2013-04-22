@@ -1,0 +1,90 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+.logo_texto {
+	font-family: "Londrina Shadow", "Helvetica Neue" , Helvetica, Arial, sans-serif;
+	font-size: 4.5em;
+	letter-spacing:0.03em;
+	color: #CF0; /* #f02311 #CF0 #CD0074 */
+}
+.dot_es {
+	font-size: 0.80em;
+	color: #CD0074;
+}
+
+@media (min-width: 1200px) {
+
+	.container,
+	.navbar-static-top .container,
+	.navbar-fixed-top .container,
+	.navbar-fixed-bottom .container {
+		width:940px;
+	}
+	.logo_texto {
+		font-family: "Londrina Shadow", "Helvetica Neue" , Helvetica, Arial, sans-serif;
+		font-size: 5em;
+		letter-spacing:0.03em;
+		color: #CF0; /* #f02311 #CF0 #CD0074 */
+	}
+	.dot_es {
+		font-size: 0.80em;
+		color: #CD0074;
+	}
+
+}
+
+
+@media (min-width: 768px) and (max-width: 979px) {
+	.logo_texto {
+		font-family: "Londrina Shadow", "Helvetica Neue" , Helvetica, Arial, sans-serif;
+		font-size: 4.5em;
+		letter-spacing:0.03em;
+		color: #CF0; /* #f02311 #CF0 #CD0074 */
+	}
+	.dot_es {
+		font-size: 0.80em;
+		color: #CD0074;
+	}
+}
+
+@media (max-width: 767px) {
+	.logo_texto {
+		font-family: "Londrina Shadow", "Helvetica Neue" , Helvetica, Arial, sans-serif;
+		font-size: 4em;
+		letter-spacing:0.03em;
+		color: #CF0; /* #f02311 #CF0 #CD0074 */
+	}
+	.dot_es {
+		font-size: 0.80em;
+		color: #CD0074;
+	}
+}
+
+@media (max-width: 480px) {
+	.logo_texto {
+		font-family: "Londrina Shadow", "Helvetica Neue" , Helvetica, Arial, sans-serif;
+		font-size: 3em;
+		letter-spacing:0.03em;
+		color: #CF0; /* #f02311 #CF0 #CD0074 */
+	}
+	.dot_es {
+		font-size: 0.80em;
+		color: #CD0074;
+	}
+}
+
+@media (max-width: 979px) {
+	
+}
+
+@media (min-width: 980px) {
+
+	body {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+	
+}

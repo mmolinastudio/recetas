@@ -2,6 +2,13 @@
 
 class Pages extends CI_Controller {
 
+    public function __construct()
+    {
+        parent::__construct();
+        //$this->lang->load('web');
+        
+    }
+
     /**
     * Carga las vistas de las páginas ¿estáticas? Home y About.
     * basado en el método Pages.view del tutorial "Introduccion a codeigniter" 
@@ -19,7 +26,7 @@ class Pages extends CI_Controller {
         $data['title'] = ucfirst($page); // Capitalize the first letter
 
         //para saber qué boton del menú principal está activo...
-        $data['controller'] = $page;
+        $data['nav_active'] = $page;
 
         $data['logged_in'] = $this->ion_auth->logged_in();
         if ($data['logged_in']) {

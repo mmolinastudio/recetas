@@ -54,6 +54,7 @@ $lang['web_list_product'] 			= 'Listado de productos';
 $lang['web_user'] 					= 'Usuario';
 $lang['web_users'] 					= 'Usuarios';
 $lang['web_add_user'] 				= 'Crear usuario';
+$lang['web_new_user'] 				= 'Nuevo usuario';
 $lang['web_edit_user']	 			= 'Editar usuario';
 $lang['web_list_user']	 			= 'Listado de usuarios';
 $lang['web_list_deactivate_user']	= 'Desactivar usuario';
@@ -86,7 +87,7 @@ $lang['web_phone']					= 'Teléfono';
 $lang['web_comments']				= 'Comentarios';
 
 
-$lang['web_home']					= 'Inicio';
+$lang['web_home']					= 'Home';
 $lang['web_welcome']				= 'Bienvenido a CodeIgniter-Starter 2.1.3';
 $lang['web_home_lang']				= 'El idioma actual es';
 $lang['web_home_lang_trans']		= 'Ejemplo de url con traducción';
@@ -97,7 +98,7 @@ $lang['web_contact']				= 'Contacto';
 
 
 $lang['web_hello']					= 'Hola';
-$lang['web_login']					= 'Login';
+$lang['web_login']					= 'Entrar';
 $lang['web_logout']					= 'Salir';
 $lang['web_lastlogin']				= 'Último login';
 $lang['web_not_logged']				= 'No tienes permisos para ver este contenido';
@@ -183,4 +184,46 @@ $lang['remember_pass_unsuccessful'] 			= 'No pudo enviarse el mail para el cambi
 //session
 $lang['session_not_correct'] 	  	 			= 'La sesión ha expirado. Vuelva a identificarse.';
 
+
+// nueva_receta
+$lang['nueva_receta_heading']                                 = 'Nueva Receta';
+$lang['nueva_receta_subheading']                              = 'Crea y comparte tus propias recetas.';
+$lang['nueva_receta_submit_btn']                              = 'Crear Receta';
+$lang['nueva_receta_optional_label']                          = 'Campo opcional';
+$lang['nueva_receta_obligatory_label']                        = 'Campo obligatorio';
+$lang['nueva_receta_nombre_label']                            = 'Título de la receta:';
+$lang['nueva_receta_validation_nombre_label']                 = 'Título';
+$lang['nueva_receta_desc_corta_label']                        = 'Introducción:';
+$lang['nueva_receta_validation_desc_corta_label']             = 'Introducción';
+$lang['nueva_receta_desc_larga_label']                        = 'Preparación de la receta:';
+$lang['nueva_receta_validation_desc_larga_label']             = 'Preparación';
+$lang['nueva_receta_foto_label']                              = 'Foto:';
+$lang['nueva_receta_validation_foto_label']                   = 'Foto';
+$lang['nueva_receta_t_preparacion_label']                     = 'Tiempo de preparación:';
+$lang['nueva_receta_validation_t_preparacion_label']          = 'Tiempo de preparación';
+$lang['nueva_receta_t_coccion_label']                         = 'Tiempo de cocción:';
+$lang['nueva_receta_validation_t_coccion_label']              = 'Tiempo de cocción';
+$lang['nueva_receta_t_refrigeracion_label']                   = 'Tiempo de refrigeración:';
+$lang['nueva_receta_validation_t_refrigeracion_label']        = 'Tiempo de refrigeración';
+$lang['nueva_receta_num_raciones_label']                      = 'Número de raciones:';
+$lang['nueva_receta_validation_num_raciones_label']           = 'Número de raciones';
+$lang['nueva_receta_consejos_label']                          = 'Consejos:';
+$lang['nueva_receta_validation_consejos_label']               = 'Consejos';
+$lang['nueva_receta_dificultad_label']                        = 'Dificultad:';
+$lang['nueva_receta_validation_dificultad_label']             = 'Dificultad';
+$lang['nueva_receta_ingredientes_label']                      = 'Ingredientes:';
+$lang['nueva_receta_validation_ingredientes_label']           = 'Ingredientes';
+$lang['nueva_receta_ingrediente_nombre_label']             	  = 'Nombre:';
+$lang['nueva_receta_validation_ingrediente_nombre_label']     = 'Nombre';
+$lang['nueva_receta_ingrediente_cantidad_label']              = 'Cantidad:';
+$lang['nueva_receta_validation_ingrediente_cantidad_label']   = 'Cantidad';
+$lang['nueva_receta_ingrediente_unidad_label']                = 'Unidad:';
+$lang['nueva_receta_validation_ingrediente_unidad_label']     = 'Unidad';
+$lang['nueva_receta_ingrediente_prioridad_label']             = 'Prioridad:';
+$lang['nueva_receta_validation_ingrediente_prioridad_label']  = 'Prioridad';
+
+$lang['nueva_receta_ayuda_ingredientes_label']          = '(ej: ternera, tomates cherry, vino blanco, sal, lechuga,...)';
+$lang['nueva_receta_ayuda_cantidad_label']              = '(500, 0.5, 1/4,...)';
+$lang['nueva_receta_ayuda_unidad_label']                = '(ej: piezas, gr, bick 100ml, pizca,...)';
+$lang['nueva_receta_ayuda_prioridad_label']             = 'ej: Si una receta puede hacerse tanto con cerdo como con ternera, poner ambos ingredientes como alternativos. Una especia puede ser opcional (si falta no pasa nada)';
 

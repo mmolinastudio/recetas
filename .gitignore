@@ -3,6 +3,7 @@ errores_tontos.txt
 
 ## Codeigniter files:
 
+assets/img/glyphicons/*
 */config/development
 */logs/log-*.php
 */logs/!index.html

@@ -19,14 +19,26 @@ class Recetas_model extends CI_Model {
         //return $query->row_array();
     }
 
-    //esta funcion devuelve una receta o la lista de todas las recetas (usar con precaucion)
-    public function get_receta_slug($slug = FALSE) {
+    //esta funcion devuelve una receta o la lista de todas las recetas
+    public function get_receta_by_slug($slug = FALSE) {
         if ($slug === FALSE) {
             $query = $this->db->get('receta');
             return $query->result_array();
         }
 
         $query = $this->db->get_where('receta', array('slug' => $slug));
+        return $query->row_array();
+    }
+
+    //esta funcion devuelve una receta o la lista de todas las recetas
+    public function get_receta_by_id($id = FALSE) {
+        if ($id === FALSE) {
+            //si no le pasamos argumentos, devuelve todas las recetas
+            $query = $this->db->get('receta');
+            return $query->result_array();
+        }
+
+        $query = $this->db->get_where('receta', array('id' => $id));
         return $query->row_array();
     }
 
@@ -66,20 +78,25 @@ class Recetas_model extends CI_Model {
             return FALSE;
         }
 
-        /*
-        SELECT ingrediente.nombre 
-        FROM ingrediente
-        INNER JOIN receta_ingrediente ON ingrediente.id = receta_ingrediente.ingrediente_id
-        INNER JOIN receta ON receta_ingrediente.receta_id = receta.id
-        WHERE receta.id = '2'
-        */
-        $this->db->select('ingrediente.nombre');
-        $this->db->from('ingrediente');
-        $this->db->join('receta_ingrediente','ingrediente.id = receta_ingrediente.ingrediente_id','inner');
-        $this->db->join('receta','receta_ingrediente.receta_id = receta.id','inner');
-        $this->db->where('receta.id',$id);
+        $this->db->select('*');
+        $this->db->from('ingredientes');
+        $this->db->where('receta_id',$id);
         $query = $this->db->get();
         return $query->result_array();
+    }
+
+    /**
+     * create_receta
+     * Añade una nueva receta a la BD
+     * @author Miguel Molina
+     * @param user_id
+     * @param nombre string - nombre de la receta
+     * @param additional_data - ¿slug?, desc_corta, desc_larga, ¿foto?, t_preparacion, t_coccion, i_refrigeracion, num_raciones, consejos, criticas, dificultad
+     * @return bool
+     **/
+    public function crear_receta($usuario_id, $nombre, $additional_data = array())
+    {
+        # code...
     }
 
 }

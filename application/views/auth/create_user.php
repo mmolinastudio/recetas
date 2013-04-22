@@ -11,23 +11,13 @@
       </p>
 
       <p>
-            <?php echo lang('create_user_lname_label', 'first_name');?> <br />
-            <?php echo form_input($last_name);?>
-      </p>
-
-      <p>
-            <?php echo lang('create_user_company_label', 'company');?> <br />
-            <?php echo form_input($company);?>
+            <?php echo lang('create_user_username_label', 'username');?> <br />
+            <?php echo form_input($username);?>
       </p>
 
       <p>
             <?php echo lang('create_user_email_label', 'email');?> <br />
             <?php echo form_input($email);?>
-      </p>
-
-      <p>
-            <?php echo lang('create_user_phone_label', 'phone');?> <br />
-            <?php echo form_input($phone1);?>-<?php echo form_input($phone2);?>-<?php echo form_input($phone3);?>
       </p>
 
       <p>

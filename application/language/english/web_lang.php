@@ -53,6 +53,7 @@ $lang['web_list_product'] 			= 'Product list';
 $lang['web_user'] 					= 'User';
 $lang['web_users'] 					= 'Users';
 $lang['web_add_user'] 				= 'Create user';
+$lang['web_new_user'] 				= 'Register';
 $lang['web_edit_user']	 			= 'Edit user';
 $lang['web_list_user']	 			= 'User list';
 $lang['web_list_deactivate_user']	= 'Disable user';

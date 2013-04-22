@@ -45,12 +45,14 @@ $route['registro'] = 'auth/registrar_usuario';
 $route['login'] = 'auth/login';
 $route['logout'] = 'auth/logout';
 $route['mi_perfil'] = 'auth/ver_perfil_usuario';
+$route['mi_cuenta'] = 'auth/ver_cuenta_usuario';
 $route['usuario/(:any)'] = 'auth/ver_perfil_usuario/$1';
 $route['auth/(:any)'] = 'auth/$1';
 $route['auth'] = 'auth';
 
+$route['recetas/nueva_receta'] = 'recetas/nueva_receta';
 $route['recetas/page/(:any)'] = 'recetas/index/$1';
-$route['recetas/(:any)'] = 'recetas/view/$1';
+$route['recetas/(:num)/(:any)'] = 'recetas/view/$1';
 $route['recetas'] = 'recetas';
 
 $route['news/create'] = 'news/create';

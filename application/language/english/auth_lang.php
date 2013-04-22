@@ -1,20 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
 * Name:  Auth Lang - English
-*
-* Author: Ben Edmunds
-* 		  ben.edmunds@gmail.com
-*         @benedmunds
-*
-* Author: Daniel Davis
-*         @ourmaninjapan
-*
-* Location: http://github.com/benedmunds/ion_auth/
-*
-* Created:  03.09.2013
-*
-* Description:  English language file for Ion Auth example views
-*
 */
 
 // Errors
@@ -32,8 +18,8 @@ $lang['login_forgot_password'] = 'Forgot your password?';
 // Index
 $lang['index_heading']           = 'Users';
 $lang['index_subheading']        = 'Below is a list of the users.';
-$lang['index_fname_th']          = 'First Name';
-$lang['index_lname_th']          = 'Last Name';
+$lang['index_fname_th']          = 'Name';
+$lang['index_username_th']       = 'Username';
 $lang['index_email_th']          = 'Email';
 $lang['index_groups_th']         = 'Groups';
 $lang['index_status_th']         = 'Status';
@@ -55,35 +41,27 @@ $lang['deactivate_validation_user_id_label'] = 'user ID';
 // Create User
 $lang['create_user_heading']                           = 'Create User';
 $lang['create_user_subheading']                        = 'Please enter the users information below.';
-$lang['create_user_fname_label']                       = 'First Name:';
-$lang['create_user_lname_label']                       = 'Last Name:';
-$lang['create_user_company_label']                     = 'Company Name:';
+$lang['create_user_fname_label']                       = 'Name:';
+$lang['create_user_username_label']                    = 'Username:';
 $lang['create_user_email_label']                       = 'Email:';
-$lang['create_user_phone_label']                       = 'Phone:';
 $lang['create_user_password_label']                    = 'Password:';
 $lang['create_user_password_confirm_label']            = 'Confirm Password:';
 $lang['create_user_submit_btn']                        = 'Create User';
 $lang['create_user_validation_fname_label']            = 'First Name';
 $lang['create_user_validation_lname_label']            = 'Last Name';
 $lang['create_user_validation_email_label']            = 'Email Address';
-$lang['create_user_validation_phone1_label']           = 'First Part of Phone';
-$lang['create_user_validation_phone2_label']           = 'Second Part of Phone';
-$lang['create_user_validation_phone3_label']           = 'Third Part of Phone';
-$lang['create_user_validation_company_label']          = 'Company Name';
 $lang['create_user_validation_password_label']         = 'Password';
 $lang['create_user_validation_password_confirm_label'] = 'Password Confirmation';
 
 // Register User
 $lang['register_user_heading']                           = 'New User';
 $lang['register_user_subheading']                        = 'Please, give us some information below.';
-$lang['register_user_fname_label']                       = 'First Name:';
-$lang['register_user_lname_label']                       = 'Last Name:';
+$lang['register_user_fname_label']                       = 'Name:';
 $lang['register_user_email_label']                       = 'Email:';
 $lang['register_user_password_label']                    = 'Password:';
 $lang['register_user_password_confirm_label']            = 'Confirm Password:';
 $lang['register_user_submit_btn']                        = 'Create User';
-$lang['register_user_validation_fname_label']            = 'First Name';
-$lang['register_user_validation_lname_label']            = 'Last Name';
+$lang['register_user_validation_fname_label']            = 'Name';
 $lang['register_user_validation_email_label']            = 'Email Address';
 $lang['register_user_validation_password_label']         = 'Password';
 $lang['register_user_validation_password_confirm_label'] = 'Password Confirmation';
@@ -97,22 +75,16 @@ $lang['register_user_obligatory_label']                  = 'Obligatory field';
 // Edit User
 $lang['edit_user_heading']                           = 'Edit User';
 $lang['edit_user_subheading']                        = 'Please enter the users information below.';
-$lang['edit_user_fname_label']                       = 'First Name:';
-$lang['edit_user_lname_label']                       = 'Last Name:';
-$lang['edit_user_company_label']                     = 'Company Name:';
+$lang['edit_user_fname_label']                       = 'Name:';
+$lang['edit_user_username_label']                    = 'Username:';
 $lang['edit_user_email_label']                       = 'Email:';
-$lang['edit_user_phone_label']                       = 'Phone:';
 $lang['edit_user_password_label']                    = 'Password: (if changing password)';
 $lang['edit_user_password_confirm_label']            = 'Confirm Password: (if changing password)';
 $lang['edit_user_groups_heading']                    = 'Member of groups';
 $lang['edit_user_submit_btn']                        = 'Save User';
 $lang['edit_user_validation_fname_label']            = 'First Name';
-$lang['edit_user_validation_lname_label']            = 'Last Name';
+$lang['edit_user_validation_username_label']         = 'Username';
 $lang['edit_user_validation_email_label']            = 'Email Address';
-$lang['edit_user_validation_phone1_label']           = 'First Part of Phone';
-$lang['edit_user_validation_phone2_label']           = 'Second Part of Phone';
-$lang['edit_user_validation_phone3_label']           = 'Third Part of Phone';
-$lang['edit_user_validation_company_label']          = 'Company Name';
 $lang['edit_user_validation_groups_label']           = 'Groups';
 $lang['edit_user_validation_password_label']         = 'Password';
 $lang['edit_user_validation_password_confirm_label'] = 'Password Confirmation';

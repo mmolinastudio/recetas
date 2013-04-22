@@ -9,7 +9,7 @@
 			<div id="collapse<?php echo $recetas_item->id; ?>" class="accordion-body collapse">
 				<div class="accordion-inner">
 					<p><?php echo $recetas_item->desc_corta; ?></p>
-		    		<p><a href="<?php echo current_url()."/".$recetas_item->slug; ?>">Ver receta</a></p>
+		    		<p><a href="<?php echo base_url('recetas/'.$recetas_item->id.'/'.$recetas_item->slug); ?>">Ver receta</a></p>
 				</div>
 			</div>
 		</div>

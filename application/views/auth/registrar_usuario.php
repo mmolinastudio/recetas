@@ -15,12 +15,6 @@
                   <input type="text" id="first_name" name="first_name" placeholder="Nombre">
             </div>
       </div>
-      <div class="control-group" title="<?php echo lang('register_user_optional_label');?>">
-            <label class="control-label" for="last_name"><?php echo lang('register_user_lname_label');?></label>
-            <div class="controls">
-                  <input type="text" id="last_name" name="last_name" placeholder="Apellido">
-            </div>
-      </div>
       <div class="control-group">
             <label class="control-label" for="username"><?php echo lang('register_user_username_label');?></label>
             <div class="controls">

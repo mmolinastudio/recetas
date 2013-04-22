@@ -759,99 +759,6 @@ class Ion_auth_model extends CI_Model
 		return FALSE;
 	}
 
-	/**
-	 * register
-	 *
-	 * @return bool
-	 * @author Mathew
-	 **/
-	public function register($username, $password, $email, $additional_data = array(), $groups = array())
-	{
-		$this->trigger_events('pre_register');
-
-		$manual_activation = $this->config->item('manual_activation', 'ion_auth');
-
-		if ($this->identity_column == 'email' && $this->email_check($email))
-		{
-			$this->set_error('account_creation_duplicate_email');
-			return FALSE;
-		}
-		elseif ($this->identity_column == 'username' && $this->username_check($username))
-		{
-			$this->set_error('account_creation_duplicate_username');
-			return FALSE;
-		}
-
-		// If username is taken, use username1 or username2, etc.
-		/*if ($this->identity_column != 'username')
-		{
-			$original_username = $username;
-			for($i = 0; $this->username_check($username); $i++)
-			{
-				if($i > 0)
-				{
-					$username = $original_username . $i;
-				}
-			}
-		}*/
-		// Si username está cogido, volver al formulario de registro.
-		if ($this->username_check($username))
-		{
-			$this->set_error('account_creation_duplicate_username');
-			return FALSE;
-		}
-
-		// IP Address
-		$ip_address = $this->_prepare_ip($this->input->ip_address());
-		$salt       = $this->store_salt ? $this->salt() : FALSE;
-		$password   = $this->hash_password($password, $salt);
-
-		// Users table.
-		$data = array(
-		    'username'   => $username,
-		    'password'   => $password,
-		    'email'      => $email,
-		    'ip_address' => $ip_address,
-		    'created_on' => time(),
-		    'last_login' => time(),
-		    'active'     => ($manual_activation === false ? 1 : 0)
-		);
-
-		if ($this->store_salt)
-		{
-			$data['salt'] = $salt;
-		}
-
-		//filter out any data passed that doesnt have a matching column in the users table
-		//and merge the set user data and the additional data
-		$user_data = array_merge($this->_filter_data($this->tables['users'], $additional_data), $data);
-
-		$this->trigger_events('extra_set');
-
-		$this->db->insert($this->tables['users'], $user_data);
-
-		$id = $this->db->insert_id();
-
-		if (!empty($groups))
-		{
-			//add to groups
-			foreach ($groups as $group)
-			{
-				$this->add_to_group($group, $id);
-			}
-		}
-
-		//add to default group if not already set
-		$default_group = $this->where('name', $this->config->item('default_group', 'ion_auth'))->group()->row();
-		if ((isset($default_group->id) && !isset($groups)) || (empty($groups) && !in_array($default_group->id, $groups)))
-		{
-			$this->add_to_group($default_group->id, $id);
-		}
-
-		$this->trigger_events('post_register');
-
-		return (isset($id)) ? $id : FALSE;
-	}
 
 	/**
 	 * login
@@ -2078,13 +1985,107 @@ class Ion_auth_model extends CI_Model
 		}
 	}
 
-	// ***** My functions ********
+	// *************************** My functions *********************************
+
+	/**
+	 * register
+	 *
+	 * @return bool
+	 * @author Mathew
+	 **/
+	public function register($username, $password, $email, $additional_data = array(), $groups = array())
+	{
+		$this->trigger_events('pre_register');
+
+		$manual_activation = $this->config->item('manual_activation', 'ion_auth');
+
+		if ($this->identity_column == 'email' && $this->email_check($email))
+		{
+			$this->set_error('account_creation_duplicate_email');
+			return FALSE;
+		}
+		elseif ($this->identity_column == 'username' && $this->username_check($username))
+		{
+			$this->set_error('account_creation_duplicate_username');
+			return FALSE;
+		}
+
+		// If username is taken, use username1 or username2, etc.
+		/*if ($this->identity_column != 'username')
+		{
+			$original_username = $username;
+			for($i = 0; $this->username_check($username); $i++)
+			{
+				if($i > 0)
+				{
+					$username = $original_username . $i;
+				}
+			}
+		}*/
+		// Si username está cogido, volver al formulario de registro.
+		if ($this->username_check($username))
+		{
+			$this->set_error('account_creation_duplicate_username');
+			return FALSE;
+		}
+
+		// IP Address
+		$ip_address = $this->_prepare_ip($this->input->ip_address());
+		$salt       = $this->store_salt ? $this->salt() : FALSE;
+		$password   = $this->hash_password($password, $salt);
+
+		// Users table.
+		$data = array(
+		    'username'   => $username,
+		    'password'   => $password,
+		    'email'      => $email,
+		    'ip_address' => $ip_address,
+		    'created_on' => time(),
+		    'last_login' => time(),
+		    'active'     => ($manual_activation === false ? 1 : 0)
+		);
+
+		if ($this->store_salt)
+		{
+			$data['salt'] = $salt;
+		}
+
+		//filter out any data passed that doesnt have a matching column in the users table
+		//and merge the set user data and the additional data
+		$user_data = array_merge($this->_filter_data($this->tables['users'], $additional_data), $data);
+
+		$this->trigger_events('extra_set');
+
+		$this->db->insert($this->tables['users'], $user_data);
+
+		$id = $this->db->insert_id();
+
+		if (!empty($groups))
+		{
+			//add to groups
+			foreach ($groups as $group)
+			{
+				$this->add_to_group($group, $id);
+			}
+		}
+
+		//add to default group if not already set
+		$default_group = $this->where('name', $this->config->item('default_group', 'ion_auth'))->group()->row();
+		if ((isset($default_group->id) && !isset($groups)) || (empty($groups) && !in_array($default_group->id, $groups)))
+		{
+			$this->add_to_group($default_group->id, $id);
+		}
+
+		$this->trigger_events('post_register');
+
+		return (isset($id)) ? $id : FALSE;
+	}
 
 	/**
 	 * user by username
 	 *
 	 * @return object
-	 * @author Ben Edmunds
+	 * @author miguel Molina
 	 **/
 	public function user_by_username($username = NULL)
 	{
@@ -2099,5 +2100,40 @@ class Ion_auth_model extends CI_Model
 		$this->users();
 
 		return $this;
+	}
+
+	/*public function get_username_by_id($id = NULL)
+	{
+		$this->trigger_events('user');
+
+		//if no id was passed use the current users id
+		$id || $id = $this->session->userdata('user_id');
+
+		$this->db->limit(1);
+		$this->db->select('username');
+		$this->db->where($this->tables['users'].'.id', $id);
+		
+		$this->users();
+
+		//$query = $this->db->get($this->tables['users']);
+		//return $query->result();
+		return $this->result();
+	}*/
+
+	/**
+	 * Identity check by
+	 *
+	 * @return bool
+	 * @author miguel Molina
+	 **/
+	public function check_user_id($id)
+	{
+		if (empty($id))
+		{
+			return FALSE;
+		}
+
+		return $this->db->where('id', $id)
+		                ->count_all_results($this->tables['users']) > 0;
 	}
 }
