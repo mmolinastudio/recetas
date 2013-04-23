@@ -16,17 +16,15 @@
 <p>Foto: <?php echo $recetas_item['foto']; ?></p>
 <p><i class="icon-tags"></i> Categorías:</p>
 <p>Ingredientes: </p>
-<ul>
+<ul class="unstyled">
 	<?php 
 		foreach ($ingredientes as $ingredientes_item) {
-			echo "<li>".$ingredientes_item['nombre']." - ".$ingredientes_item['cantidad']." ".$ingredientes_item['unidad']." (".$ingredientes_item['prioridad'].")</li>";
+			echo "<li><strong>".$ingredientes_item['nombre']."</strong> ".$ingredientes_item['cantidad']." ".$ingredientes_item['unidad']." (".$ingredientes_item['prioridad'].")</li>";
 			//echo "<li>".$ingredientes_item['nombre']."</li>";
 		}
 		
 	?>
 </ul>
-
-
 
 <p>Descripción corta: <?php echo $recetas_item['desc_corta']; ?></p>
 <p>Descripción: <?php echo $recetas_item['desc_larga']; ?></p>

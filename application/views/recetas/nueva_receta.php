@@ -18,9 +18,34 @@
       <div class="control-group" title="<?php echo lang('nueva_receta_optional_label');?>">
             <label class="control-label" for="desc_corta"><?php echo lang('nueva_receta_desc_corta_label');?></label>
             <div class="controls">
-                  <textarea rows="3" class="input-xxlarge" type="text" id="desc_corta" name="desc_corta" placeholder="Introducción..."></textarea>
+                  <textarea rows="2" class="input-xxlarge" type="text" id="desc_corta" name="desc_corta" placeholder="Introducción..."></textarea>
             </div>
       </div>
+
+      <div class="control-group">
+            <hr>
+            <label class="control-label">
+                  <?php echo lang('nueva_receta_ingredientes_label');?>
+            </label>
+            <div class="controls ">
+                  <label><?php //echo lang('nueva_receta_ingrediente_nombre_label');?>
+                        <input class="input-xxlarge" type="text" id="ingr_nombre_0" name="ingr_nombre_0" placeholder="Nombre..." required>
+                  </label>
+
+                  <input class="input-small" type="text" id="ingr_cantidad_0" name="ingr_cantidad_0" placeholder="Cantidad..." required>
+                  <input class="input-large" type="text" id="ingr_unidad_0" name="ingr_unidad_0" placeholder="Unidad de medida..." required>
+                  <select class="input-large" name="prioridad" id="prioridad0">
+                        <option>Select...</option>
+                        <option value="0">Necesario. No puede faltar.</option>
+                        <option value="1">Alternativo. Se puede usar otro ingrediente en lugar de éste (decir cual).</option>
+                        <option value="2">Opcional. Si falta, no pasa nada.</option>
+                  </select>
+                  <p></p>
+                  <button id="boton_ingr" class="btn btn-mini" type="button">Añadir ingrediente</button>
+                  <hr>
+            </div>
+      </div>
+
       <div class="control-group">
             <label class="control-label" for="desc_larga"><?php echo lang('nueva_receta_desc_larga_label');?></label>
             <div class="controls">
@@ -99,31 +124,6 @@
                   <textarea rows="3" class="input-xxlarge" type="number" id="consejos" name="consejos" placeholder="¿Algún consejo?"></textarea>
             </div>
       </div>
-
-      <div class="control-group">
-            <hr>
-            <label class="control-label">
-                  <?php echo lang('nueva_receta_ingredientes_label');?>
-            </label>
-            <div class="controls ">
-                  <label><?php //echo lang('nueva_receta_ingrediente_nombre_label');?>
-                        <input class="input-xxlarge" type="text" id="ingr_nombre_0" name="ingr_nombre_0" placeholder="Nombre..." required>
-                  </label>
-
-                  <input class="input-small" type="text" id="ingr_cantidad_0" name="ingr_cantidad_0" placeholder="Cantidad..." required>
-                  <input class="input-large" type="text" id="ingr_unidad_0" name="ingr_unidad_0" placeholder="Unidad de medida..." required>
-                  <select class="input-large" name="prioridad" id="prioridad0">
-                        <option>Select...</option>
-                        <option value="0">Necesario. No puede faltar.</option>
-                        <option value="1">Alternativo. Se puede usar otro ingrediente en lugar de éste (decir cual).</option>
-                        <option value="2">Opcional. Si falta, no pasa nada.</option>
-                  </select>
-                  <p></p>
-                  <button id="boton_ingr" class="btn btn-mini" type="button">Añadir ingrediente</button>
-                  <hr>
-            </div>
-      </div>
-
 
       <div class="control-group">
             <div class="controls">
