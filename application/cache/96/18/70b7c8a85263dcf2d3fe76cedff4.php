@@ -22,12 +22,12 @@ class __TwigTemplate_961870b7c8a85263dcf2d3fe76cedff4 extends Twig_Template
         $this->env->loadTemplate("templates/header.twig")->display($context);
         // line 3
         echo "
-<h1> ";
+\t<h1> ";
         // line 4
         if (isset($context["recetas_item"])) { $_recetas_item_ = $context["recetas_item"]; } else { $_recetas_item_ = null; }
         echo twig_escape_filter($this->env, $this->getAttribute($_recetas_item_, "nombre"), "html", null, true);
         echo " </h1>
-<p> ";
+\t<p> ";
         // line 5
         if (isset($context["recetas_item"])) { $_recetas_item_ = $context["recetas_item"]; } else { $_recetas_item_ = null; }
         echo twig_escape_filter($this->env, $this->getAttribute($_recetas_item_, "desc_larga"), "html", null, true);

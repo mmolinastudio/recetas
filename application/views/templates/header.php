@@ -11,18 +11,18 @@
         <meta name="viewport" content="width=device-width">
         <link rel="author" href="humans.txt" />
 
-        <link rel="stylesheet" href="<?php echo site_url("assets/css/bootstrap.min.css"); ?>">
-        <link rel="stylesheet" href="<?php echo site_url("assets/css/bootstrap-responsive.min.css"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap-responsive.min.css"); ?>">
         
-        <link rel="stylesheet" href="<?php echo site_url("assets/js/vendor/jasny-bootstrap/css/jasny-bootstrap.min.css"); ?>">
-        <link rel="stylesheet" href="<?php echo site_url("assets/js/vendor/jasny-bootstrap/css/jasny-bootstrap-responsive.min.css"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("assets/js/vendor/jasny-bootstrap/css/jasny-bootstrap.min.css"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("assets/js/vendor/jasny-bootstrap/css/jasny-bootstrap-responsive.min.css"); ?>">
         
-        <link rel="stylesheet" href="<?php echo site_url("assets/css/main.css"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("assets/css/main.css"); ?>">
         <link href='http://fonts.googleapis.com/css?family=Londrina+Shadow|Fascinate' rel='stylesheet' type='text/css'>
 
         <!--[if lt IE 9]>
             <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-            <script>window.html5 || document.write('<script src="{{ site_url("assets/js/vendor/html5shiv.js") }}"><\/script>')</script>
+            <script>window.html5 || document.write('<script src="{{ base_url("assets/js/vendor/html5shiv.js") }}"><\/script>')</script>
         <![endif]-->
     </head>
     <body>

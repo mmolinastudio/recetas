@@ -172,6 +172,9 @@ class Recetas extends CI_Controller {
             //creamos el slug
             $additional_data['slug'] = $this->slugify($nombre);
             //$additional_data['slug'] = (string)date('Y-m-d H.i:s');
+            if (strlen($additional_data['slug'])) {
+                $additional_data['slug'] = substr($additional_data['slug'], 0, 99);
+            }
 
             $additional_data['t_preparacion'] = $this->input->post('t_preparacion');
             $additional_data['t_coccion'] = $this->input->post('t_coccion');

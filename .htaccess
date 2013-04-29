@@ -1,11 +1,11 @@
 RewriteEngine on
 
-#RewriteCond $1 !^(index\.php|images|robots\.txt)
-RewriteCond $1 !^(index\.php|assets|css|js|img|robots\.txt)
-RewriteCond $1 !^(index\.php|robots\.txt)
+## RewriteCond $1 !^(index\.php|assets|css|js|img|robots\.txt)
+RewriteCond $1 !^(index\.php|[assets/css/js/img]|robots\.txt)
 
-#Use this rule if the applicaiton is not in a subdirectory
+## Use this rule if the applicaiton is not in a subdirectory
 RewriteRule ^(.*)$ index.php/$1 [L]
-#Adjust the path if the application is in a subdirectory.
-#RewriteRule ^(.*)$ /~ipod/codeigniter-tutorial/index.php/$1 [L]
+
+## Adjust the path if the application is in a subdirectory.
+#RewriteRule ^(.*)$ /recetas/index.php/$1 [L]
 

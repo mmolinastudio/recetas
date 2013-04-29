@@ -12,13 +12,13 @@
       <div class="control-group">
             <label class="control-label" for="nombre"><?php echo lang('nueva_receta_nombre_label');?></label>
             <div class="controls">
-                  <input class="input-xxlarge" type="text" id="nombre" name="nombre" placeholder="Título..." required>
+                  <input class="input-xxlarge" type="text" id="nombre" name="nombre" placeholder="Título..." required pattern=".{3,150}">
             </div>
       </div>
       <div class="control-group" title="<?php echo lang('nueva_receta_optional_label');?>">
             <label class="control-label" for="desc_corta"><?php echo lang('nueva_receta_desc_corta_label');?></label>
             <div class="controls">
-                  <textarea rows="2" class="input-xxlarge" type="text" id="desc_corta" name="desc_corta" placeholder="Introducción..."></textarea>
+                  <textarea rows="2" class="input-xxlarge" type="text" id="desc_corta" name="desc_corta" placeholder="Introducción..." pattern=".{0,150}"></textarea>
             </div>
       </div>
 
@@ -45,6 +45,7 @@
                   <hr>
             </div>
       </div>
+
 
       <div class="control-group">
             <label class="control-label" for="desc_larga"><?php echo lang('nueva_receta_desc_larga_label');?></label>
