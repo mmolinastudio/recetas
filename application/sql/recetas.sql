@@ -23,26 +23,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categoria_ingr`
---
-
-CREATE TABLE IF NOT EXISTS `categoria_ingr` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(30) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `nombre` (`nombre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `categoria_ingr`
---
-
-INSERT INTO `categoria_ingr` (`id`, `nombre`) VALUES
-(1, 'general');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `groups`
 --
 
@@ -60,36 +40,6 @@ CREATE TABLE IF NOT EXISTS `groups` (
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 (1, 'admin', 'Administrator'),
 (2, 'members', 'General User');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ingrediente`
---
-
-CREATE TABLE IF NOT EXISTS `ingrediente` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) NOT NULL,
-  `categoria` int(11) DEFAULT NULL,
-  `foto` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `foto` (`foto`),
-  KEY `fk_ingrediente_categoria_ingr` (`categoria`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
-
---
--- Volcado de datos para la tabla `ingrediente`
---
-
-INSERT INTO `ingrediente` (`id`, `nombre`, `categoria`, `foto`) VALUES
-(1, 'patata', 1, NULL),
-(2, 'tomate frito', 1, NULL),
-(3, 'cerdo', 1, NULL),
-(4, 'miel', 1, NULL),
-(5, 'nata (para cocinar)', 1, NULL),
-(6, 'pan', 1, NULL),
-(7, 'pollo', 1, NULL),
-(8, 'queso azul', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -140,28 +90,6 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `news`
---
-
-CREATE TABLE IF NOT EXISTS `news` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(128) NOT NULL,
-  `slug` varchar(128) NOT NULL,
-  `text` text NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `slug` (`slug`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `news`
---
-
-INSERT INTO `news` (`id`, `title`, `slug`, `text`) VALUES
-(1, 'Noticia del dia', 'noticia-del-dia', 'bueno... esto es una noticia: Lorem Ipsum dolor sit aemet... perra');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `receta`
 --
 
@@ -194,44 +122,8 @@ INSERT INTO `receta` (`id`, `usuario_id`, `nombre`, `slug`, `desc_corta`, `desc_
 (4, 1, 'Receta sin nombre 1', 'slug1', 'Descripcion corta', 'Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per. Ius id vidit volumus mandamus, vide veritus democritum te nec, ei eos debet libris consulatu. No mei ferri graeco dicunt, ad cum veri accommodare. Sed at malis omnesque delicata, usu et iusto zzril meliore. Dicunt maiorum eloquentiam cum cu, sit summo dolor essent te. Ne quodsi nusquam legendos has, ea dicit voluptua eloquentiam pro, ad sit quas qualisque. Eos vocibus deserunt quaestio ei. Blandit incorrupte quaerendum in quo, nibh impedit id vis, vel no nullam semper audiam. ', NULL, NULL, NULL, NULL, 2, NULL, NULL),
 (5, 0, 'Receta sin nombre 2', 'slug2', 'Descripcion corta', 'Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per. Ius id vidit volumus mandamus, vide veritus democritum te nec, ei eos debet libris consulatu. No mei ferri graeco dicunt, ad cum veri accommodare. Sed at malis omnesque delicata, usu et iusto zzril meliore. Dicunt maiorum eloquentiam cum cu, sit summo dolor essent te. Ne quodsi nusquam legendos has, ea dicit voluptua eloquentiam pro, ad sit quas qualisque. Eos vocibus deserunt quaestio ei. Blandit incorrupte quaerendum in quo, nibh impedit id vis, vel no nullam semper audiam. ', NULL, NULL, NULL, NULL, 2, NULL, NULL),
 (6, 0, 'Receta sin nombre 3', 'slug3', 'Descripcion corta', 'Descripcion corta', 'Lorem ipsum ad his scripta bland', NULL, NULL, NULL, 2, NULL, NULL),
-(7, 0, 'Receta sin nombre 4', 'slug4', 'Descripcion corta', 'Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per. Ius id vidit volumus mandamus, vide veritus democritum te nec, ei eos debet libris consulatu. No mei ferri graeco dicunt, ad cum veri accommodare. Sed at malis omnesque delicata, usu et iusto zzril meliore. Dicunt maiorum eloquentiam cum cu, sit summo dolor essent te.', NULL, NULL, NULL, NULL, 2, NULL, NULL),
-(8, 0, 'Receta sin nombre 5', 'slug5', 'Riquísimas costillas, generalmente de carne de cerdo, a la miel, cocinadas al horno.', 'Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per. Ius id vidit volumus mandamus, vide veritus democritum te nec, ei eos debet libris consulatu. No mei ferri graeco dicunt, ad cum veri accommodare. Sed at malis omnesque delicata, usu et iusto zzril meliore. Dicunt maiorum eloquentiam cum cu, sit summo dolor essent te.', NULL, NULL, NULL, NULL, 2, NULL, NULL),
-(9, 0, 'Receta sin nombre 6', 'slug6', 'Descripcion corta', 'Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per. Ius id vidit volumus mandamus, vide veritus democritum te nec, ei eos debet libris consulatu. No mei ferri graeco dicunt, ad cum veri accommodare. Sed at malis omnesque delicata, usu et iusto zzril meliore. Dicunt maiorum eloquentiam cum cu, sit summo dolor essent te.', NULL, NULL, NULL, NULL, 2, NULL, NULL),
-(10, 0, 'Receta sin nombre 7', 'slug7', 'Descripcion corta', 'Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per. Ius id vidit volumus mandamus, vide veritus democritum te nec, ei eos debet libris consulatu. No mei ferri graeco dicunt, ad cum veri accommodare. Sed at malis omnesque delicata, usu et iusto zzril meliore. Dicunt maiorum eloquentiam cum cu, sit summo dolor essent te.', NULL, NULL, NULL, NULL, 2, NULL, NULL),
-(11, 0, 'Receta sin nombre 8', 'slug8', 'Descripcion corta', 'Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per. Ius id vidit volumus mandamus, vide veritus democritum te nec, ei eos debet libris consulatu. No mei ferri graeco dicunt, ad cum veri accommodare. Sed at malis omnesque delicata, usu et iusto zzril meliore. Dicunt maiorum eloquentiam cum cu, sit summo dolor essent te.', NULL, NULL, NULL, NULL, 2, NULL, NULL),
-(12, 0, 'Receta sin nombre 9', 'slug9', 'Descripcion corta', 'Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per. Ius id vidit volumus mandamus, vide veritus democritum te nec, ei eos debet libris consulatu. No mei ferri graeco dicunt, ad cum veri accommodare. Sed at malis omnesque delicata, usu et iusto zzril meliore. Dicunt maiorum eloquentiam cum cu, sit summo dolor essent te.', NULL, NULL, NULL, NULL, 2, NULL, NULL),
-(13, 0, 'Receta sin nombre 10', 'slug10', 'Descripcion corta', 'Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per. Ius id vidit volumus mandamus, vide veritus democritum te nec, ei eos debet libris consulatu. No mei ferri graeco dicunt, ad cum veri accommodare. Sed at malis omnesque delicata, usu et iusto zzril meliore. Dicunt maiorum eloquentiam cum cu, sit summo dolor essent te.', NULL, NULL, NULL, NULL, 2, NULL, NULL);
+(7, 0, 'Receta sin nombre 4', 'slug4', 'Descripcion corta', 'Lorem ipsum ad his scripta blandit partiendo, eum fastidii accumsan euripidis in, eum liber hendrerit an. Qui ut wisi vocibus suscipiantur, quo dicit ridens inciderint id. Quo mundi lobortis reformidans eu, legimus senserit definiebas an eos. Eu sit tincidunt incorrupte definitionem, vis mutat affert percipit cu, eirmod consectetuer signiferumque eu per. In usu latine equidem dolores. Quo no falli viris intellegam, ut fugit veritus placerat per. Ius id vidit volumus mandamus, vide veritus democritum te nec, ei eos debet libris consulatu. No mei ferri graeco dicunt, ad cum veri accommodare. Sed at malis omnesque delicata, usu et iusto zzril meliore. Dicunt maiorum eloquentiam cum cu, sit summo dolor essent te.', NULL, NULL, NULL, NULL, 2, NULL, NULL);
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `receta_ingrediente`
---
-
-CREATE TABLE IF NOT EXISTS `receta_ingrediente` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `receta_id` int(11) NOT NULL,
-  `ingrediente_id` int(11) NOT NULL,
-  `cantidad` float NOT NULL,
-  `unidad` varchar(30) NOT NULL COMMENT 'piezs, e.g.: ml, gr, brik, filetes fino, pizca,...',
-  `prioridad` enum('obligatorio','alternativo','opcional') NOT NULL DEFAULT 'obligatorio',
-  PRIMARY KEY (`id`),
-  KEY `fk_receta_ingrediente_receta` (`receta_id`),
-  KEY `fk_receta_ingrediente_ingrediente` (`ingrediente_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
-
---
--- Volcado de datos para la tabla `receta_ingrediente`
---
-
-INSERT INTO `receta_ingrediente` (`id`, `receta_id`, `ingrediente_id`, `cantidad`, `unidad`, `prioridad`) VALUES
-(1, 1, 1, 4, 'piezas', 'obligatorio'),
-(2, 2, 3, 2, 'costillar grande', 'obligatorio'),
-(3, 2, 4, 50, 'ml', 'obligatorio'),
-(6, 2, 6, 0.5, 'barra', 'opcional'),
-(7, 3, 7, 4, 'filetes corte fino, troceados', 'obligatorio'),
-(8, 3, 8, 100, 'gr', 'obligatorio'),
-(9, 3, 5, 1, 'brick 100ml', 'obligatorio');
 
 -- --------------------------------------------------------
 
@@ -292,6 +184,111 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (11, 2, 2),
 (12, 9, 2);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `categoria_ingr`
+--
+
+-- CREATE TABLE IF NOT EXISTS `categoria_ingr` (
+--   `id` int(11) NOT NULL,
+--   `nombre` varchar(30) NOT NULL,
+--   PRIMARY KEY (`id`),
+--   KEY `nombre` (`nombre`)
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `categoria_ingr`
+--
+
+-- INSERT INTO `categoria_ingr` (`id`, `nombre`) VALUES
+-- (1, 'general');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ingrediente`
+--
+
+-- CREATE TABLE IF NOT EXISTS `ingrediente` (
+--   `id` int(11) NOT NULL AUTO_INCREMENT,
+--   `nombre` varchar(50) NOT NULL,
+--   `categoria` int(11) DEFAULT NULL,
+--   `foto` varchar(32) DEFAULT NULL,
+--   PRIMARY KEY (`id`),
+--   UNIQUE KEY `foto` (`foto`),
+--   KEY `fk_ingrediente_categoria_ingr` (`categoria`)
+-- ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Volcado de datos para la tabla `ingrediente`
+--
+
+-- INSERT INTO `ingrediente` (`id`, `nombre`, `categoria`, `foto`) VALUES
+-- (1, 'patata', 1, NULL),
+-- (2, 'tomate frito', 1, NULL),
+-- (3, 'cerdo', 1, NULL),
+-- (4, 'miel', 1, NULL),
+-- (5, 'nata (para cocinar)', 1, NULL),
+-- (6, 'pan', 1, NULL),
+-- (7, 'pollo', 1, NULL),
+-- (8, 'queso azul', 1, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `receta_ingrediente`
+--
+
+-- CREATE TABLE IF NOT EXISTS `receta_ingrediente` (
+--   `id` int(11) NOT NULL AUTO_INCREMENT,
+--   `receta_id` int(11) NOT NULL,
+--   `ingrediente_id` int(11) NOT NULL,
+--   `cantidad` float NOT NULL,
+--   `unidad` varchar(30) NOT NULL COMMENT 'piezs, e.g.: ml, gr, brik, filetes fino, pizca,...',
+--   `prioridad` enum('obligatorio','alternativo','opcional') NOT NULL DEFAULT 'obligatorio',
+--   PRIMARY KEY (`id`),
+--   KEY `fk_receta_ingrediente_receta` (`receta_id`),
+--   KEY `fk_receta_ingrediente_ingrediente` (`ingrediente_id`)
+-- ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+--
+-- Volcado de datos para la tabla `receta_ingrediente`
+--
+
+-- INSERT INTO `receta_ingrediente` (`id`, `receta_id`, `ingrediente_id`, `cantidad`, `unidad`, `prioridad`) VALUES
+-- (1, 1, 1, 4, 'piezas', 'obligatorio'),
+-- (2, 2, 3, 2, 'costillar grande', 'obligatorio'),
+-- (3, 2, 4, 50, 'ml', 'obligatorio'),
+-- (6, 2, 6, 0.5, 'barra', 'opcional'),
+-- (7, 3, 7, 4, 'filetes corte fino, troceados', 'obligatorio'),
+-- (8, 3, 8, 100, 'gr', 'obligatorio'),
+-- (9, 3, 5, 1, 'brick 100ml', 'obligatorio');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `news`
+--
+
+-- CREATE TABLE IF NOT EXISTS `news` (
+--   `id` int(11) NOT NULL AUTO_INCREMENT,
+--   `title` varchar(128) NOT NULL,
+--   `slug` varchar(128) NOT NULL,
+--   `text` text NOT NULL,
+--   PRIMARY KEY (`id`),
+--   KEY `slug` (`slug`)
+-- ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `news`
+--
+
+-- INSERT INTO `news` (`id`, `title`, `slug`, `text`) VALUES
+-- (1, 'Noticia del dia', 'noticia-del-dia', 'bueno... esto es una noticia: Lorem Ipsum dolor sit aemet... perra');
+
+-- --------------------------------------------
+
 --
 -- Restricciones para tablas volcadas
 --
@@ -299,8 +296,8 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 --
 -- Filtros para la tabla `ingrediente`
 --
-ALTER TABLE `ingrediente`
-  ADD CONSTRAINT `ingrediente_ibfk_1` FOREIGN KEY (`categoria`) REFERENCES `categoria_ingr` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
+-- ALTER TABLE `ingrediente`
+--   ADD CONSTRAINT `ingrediente_ibfk_1` FOREIGN KEY (`categoria`) REFERENCES `categoria_ingr` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `users_groups`
